@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>CRUDS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/all.min.css" type="text/css" />
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="css/hover-min.css" type="text/css" />
+    <link rel="stylesheet" href="css/styles.css" type="text/css" />
+  </head>
+  <body class="bg-secondary bg-gradient">
+    <div class="w-50 mx-auto py-5">
+      <h1 class="mb-3">Product Mangemnt System</h1>
+      <div class="form-group mt-2">
+        <label for="ProductName" class="text-info fw-bolder">Product Name</label>
+        <input type="text" onkeyup="validProductName()" id="ProductName" class="form-control" />
+        <p class="text-danger d-none" id="valid-name">Please start with capital letter</p>
+      </div>
+      <div class="form-group mt-2">
+        <label for="ProductPrice" class="text-info fw-bolder">Product Price</label>
+        <input type="number" onkeyup="validProductPrice()" id="ProductPrice" class="form-control" />
+        <p class="text-danger d-none" id="valid-price">Please enter at least 3 number</p>
+      </div>
+      <div class="form-group mt-2">
+        <label for="Productcat" class="text-info fw-bolder">Product Category</label>
+        <select class="form-select" id="Productcat" onsubmit="validProductCategory()">
+          <option selected disabled value="">--choose category--</option>
+          <option value="TV">TV</option>
+          <option value="Mobile">Mobile</option>
+          <option value="Laptop">Laptop</option>
+          <option value="headphone">headphone</option>
+        </select>
+        <p class="text-danger d-none" id="valid-cat">Please select category</p>
+      </div>
+      <div class="form-group mt-2">
+        <label for="Productdes" class="text-info fw-bolder">Product Description</label>
+        <input type="text" id="Productdes" class="form-control" />
+      </div>
+      <div class="form-group mt-2">
+        <label for="Productdes" class="text-info fw-bolder">Product URL</label>
+        <input type="url" id="productUrl" class="form-control" />
+      </div>
+      <button
+        type="submit"
+        id="btnAddProduct"
+        class="
+          btn
+          hvr-grow-shadow
+          btn-outline-info
+          mt-3
+          fw-bolder
+          border border-info border-2
+          w-50
+        "
+        onclick="addproduct()"
+      >
+        Add Product
+      </button>
+
+      <div class="form-outline mt-4">
+        <label class="form-label text-info fw-bolder" for="form1">Search</label>
+        <input
+          type="search"
+          id="form1"
+          oninput="searchProduct(this.value)"
+          class="form-control"
+        />
+      </div>
+    </div>
+    <div class="w-75 mx-auto mb-5">
+      <table class="table text-center bg-light border border-5">
+        <thead>
+          <th>i</th>
+          <th>Product Name</th>
+          <th>Product Price</th>
+          <th>Product Category</th>
+          <th>Product Description</th>
+          <th>Product URL</th>
+          <th>Update</th>
+          <th>Delete</th>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+    <script src="js/index.js"></script>
+    <script src="js/bootstrap.bundle.js"></script>
+  </body>
+</html>
